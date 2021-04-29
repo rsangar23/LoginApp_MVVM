@@ -37,9 +37,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void initObserver(){
         loginViewModel.getLoginResponseLiveData().observe(this, loginResponse -> {
-            if(loginResponse.getUser().getAccessToken() != null){
-                Toast.makeText(this, "User Registered Successfully", Toast.LENGTH_LONG).show();
+            if(loginResponse != null){
+                Toast.makeText(this, "Login Successful", Toast.LENGTH_LONG).show();
                 binding.progressbar.setVisibility(View.GONE);
+            }else {
+                binding.progressbar.setVisibility(View.GONE);
+                binding.editTextTextEmailAddress.setError("Please enter valid email");
+                binding.editTextTextPassword.setError("Please enter valid password");
             }
         });
     }

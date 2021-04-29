@@ -34,6 +34,8 @@ public class UserRepository {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if(response.isSuccessful()){
                     loginResponseMutableLiveData.postValue(response.body());
+                }else if(response.code() == 401){
+                    loginResponseMutableLiveData.postValue(null);
                 }
             }
 

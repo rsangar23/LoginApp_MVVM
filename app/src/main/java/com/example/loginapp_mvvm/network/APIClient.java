@@ -8,6 +8,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIClient {
 
+    private final static String BASE_URL = "https://simplifiedcoding.tech/mywebapp/public/api/";
+
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient() {
@@ -17,7 +19,7 @@ public class APIClient {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://simplifiedcoding.tech/mywebapp/public/api/")
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();
