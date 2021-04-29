@@ -1,4 +1,4 @@
-package com.example.loginapp_mvvm;
+package com.example.loginapp_mvvm.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.loginapp_mvvm.R;
 import com.example.loginapp_mvvm.databinding.ActivityMainBinding;
 import com.example.loginapp_mvvm.viewmodel.LoginViewModel;
 
