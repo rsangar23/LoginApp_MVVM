@@ -11,6 +11,8 @@ import android.widget.Toast;
 import com.example.loginapp_mvvm.databinding.ActivityMainBinding;
 import com.example.loginapp_mvvm.viewmodel.LoginViewModel;
 
+//https://github.com/rsangar23/LoginApp_MVVM - git
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
@@ -19,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         binding.setMainActivity(this);

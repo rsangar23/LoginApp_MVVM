@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.loginapp_mvvm.model.LoginResponse;
 import com.example.loginapp_mvvm.model.UserModel;
+import com.example.loginapp_mvvm.network.APIClient;
 import com.example.loginapp_mvvm.network.APIInterface;
 
 import okhttp3.OkHttpClient;
@@ -22,16 +23,7 @@ public class UserRepository {
     public UserRepository() {
         loginResponseMutableLiveData = new MutableLiveData<>();
 
-        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
-
-        apiInterface = new Retrofit.Builder()
-                .baseUrl("https://simplifiedcoding.tech/mywebapp/public/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(client)
-                .build()
-                .create(APIInterface.class);
+        apiInterface = APIClient.getClient().create(APIInterface.class);
 
     }
 
