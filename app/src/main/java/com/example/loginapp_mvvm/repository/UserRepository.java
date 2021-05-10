@@ -27,9 +27,9 @@ public class UserRepository {
 
     }
 
-    public void login(UserModel userModel){
+    public void login(String email, String password){
 
-        apiInterface.login(userModel).enqueue(new Callback<LoginResponse>() {
+        apiInterface.login(email, password).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if(response.isSuccessful()){

@@ -28,11 +28,11 @@ public class LoginViewModel extends AndroidViewModel {
     }
 
     public void login(){
-        UserModel userModel = new UserModel();
-        userModel.setEmail(email.getValue());
-        userModel.setPassword(password.getValue());
+//        UserModel userModel = new UserModel();
+//        userModel.setEmail(email.getValue());
+//        userModel.setPassword(password.getValue());
 
-        userRepository.login(userModel);
+        userRepository.login(email.getValue(), password.getValue());
     }
 
     public LiveData<LoginResponse> getLoginResponseLiveData() {

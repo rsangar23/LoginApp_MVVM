@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme.ShareIcon" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:background">@drawable/ic_baseline_share_24</item>
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
+</resources>
