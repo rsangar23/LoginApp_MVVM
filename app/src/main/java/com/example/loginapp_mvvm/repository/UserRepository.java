@@ -7,6 +7,8 @@ import com.example.loginapp_mvvm.model.UserModel;
 import com.example.loginapp_mvvm.network.APIClient;
 import com.example.loginapp_mvvm.network.APIInterface;
 
+import javax.inject.Inject;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -18,13 +20,18 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class UserRepository {
 
     private APIInterface apiInterface;
-    private MutableLiveData<LoginResponse> loginResponseMutableLiveData;
+    private MutableLiveData<LoginResponse> loginResponseMutableLiveData = new MutableLiveData<>();
 
-    public UserRepository() {
-        loginResponseMutableLiveData = new MutableLiveData<>();
+//    public UserRepository() {
+//        loginResponseMutableLiveData = new MutableLiveData<>();
+//
+//        apiInterface = APIClient.getClient().create(APIInterface.class);
+//
+//    }
 
-        apiInterface = APIClient.getClient().create(APIInterface.class);
-
+    @Inject
+    public UserRepository(APIInterface apiInterface) {
+        this.apiInterface = apiInterface;
     }
 
     public void login(String email, String password){

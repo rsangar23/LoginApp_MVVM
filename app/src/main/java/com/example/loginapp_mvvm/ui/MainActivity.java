@@ -12,29 +12,35 @@ import com.example.loginapp_mvvm.R;
 import com.example.loginapp_mvvm.databinding.ActivityMainBinding;
 import com.example.loginapp_mvvm.viewmodel.LoginViewModel;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
 //https://github.com/rsangar23/LoginApp_MVVM - git
 
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private LoginViewModel loginViewModel;
+    @Inject
+    LoginViewModel loginViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+//        loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         binding.setMainActivity(this);
         binding.setLifecycleOwner(this);
         binding.setLoginViewModel(loginViewModel);
 
-        init();
+//        init();
         initObserver();
     }
 
-    private void init(){
-        loginViewModel.init();
-    }
+//    private void init(){
+//        loginViewModel.init();
+//    }
 
     private void initObserver(){
         loginViewModel.getLoginResponseLiveData().observe(this, loginResponse -> {

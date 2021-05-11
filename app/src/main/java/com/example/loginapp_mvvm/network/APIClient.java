@@ -1,6 +1,8 @@
 package com.example.loginapp_mvvm.network;
 
 
+import javax.inject.Inject;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
