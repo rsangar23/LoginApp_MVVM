@@ -20,18 +20,16 @@ import dagger.hilt.android.lifecycle.HiltViewModel;
 public class LoginViewModel extends AndroidViewModel {
 
     UserRepository userRepository;
+    private LiveData<LoginResponse> loginResponseLiveData = new MutableLiveData<>();
+    public MutableLiveData<String> email = new MutableLiveData<>("");
+    public MutableLiveData<String> password = new MutableLiveData<>("");
 
     @Inject
     public LoginViewModel(@NonNull Application application, UserRepository userRepository) {
         super(application);
         this.userRepository = userRepository;
         loginResponseLiveData = userRepository.getLoginResponseMutableLiveData();
-
     }
-
-    private LiveData<LoginResponse> loginResponseLiveData;
-    public MutableLiveData<String> email = new MutableLiveData<>("");
-    public MutableLiveData<String> password = new MutableLiveData<>("");
 
 //    public LoginViewModel(@NonNull Application application) {
 //        super(application);
@@ -41,6 +39,8 @@ public class LoginViewModel extends AndroidViewModel {
 //        userRepository = new UserRepository();
 //        loginResponseLiveData = userRepository.getLoginResponseMutableLiveData();
 //    }
+
+
 
     public void login(){
 //        UserModel userModel = new UserModel();
